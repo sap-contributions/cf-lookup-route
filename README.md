@@ -2,7 +2,6 @@
 
 This is a Cloud Foundry CLI plugin to quickly identify applications, a given route is pointing to.
 Note this will only show applications in organizations and spaces, that the logged-in user has permissions to view.
-The plugin also supports targeting to the organization and space of the applications, a given route is pointing to.
 
 ## Installation
 
@@ -23,33 +22,33 @@ Alternatively:
 
 ## Usage
 
-OPTIONS:
-
--t: Target the org/space containing the route
-
 EXAMPLES:
 
 ```
-$ cf lookup-route <https://my.example.com>
+$ cf lookup-route https://my.example.com
 Bound to:
 Organization: <org> (<org_guid>)
 Space       : <space> (<space_guid>)
 App         : <app1> (<app_guid_1>)
 App         : <app2> (<app_guid_2>)
 
-# use -t to target the org/space containing the route
-$ cf lookup-route -t <https://my.example.com>
-
+To target this org/space, run:
+  cf target -o <org> -s <space>
+ 
+# if no protocol is specified, https is assumed by default,
+# so the following yields the same result as above:
+$ cf lookup-route my.example.com
 Bound to:
 Organization: <org> (<org_guid>)
 Space       : <space> (<space_guid>)
-App         : <app> (<app_guid>)
+App         : <app1> (<app_guid_1>)
+App         : <app2> (<app_guid_2>)
 
-Targeting an app's organization and space...
-<cf target command output>
-Targeting an app's organization and space successful.
+To target this org/space, run:
+  cf target -o <org> -s <space>
 
-$ cf lookup-route <https://unknown.example.com>
+
+$ cf lookup-route unknown.example.com
 Error retrieving apps: Route <unknown.example.com> not found.
 ```
 ## Uninstallation
