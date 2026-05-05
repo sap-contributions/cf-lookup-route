@@ -1,9 +1,9 @@
 module github.com/cloudfoundry/cf-lookup-route
 
-go 1.26.2
+go 1.25.9
 
 require (
-	code.cloudfoundry.org/cli/v8 v8.18.3
+	code.cloudfoundry.org/cli/v8 v8.18.0
 	github.com/cloudfoundry/go-cfclient/v3 v3.0.0-alpha.20
 )
 
@@ -16,5 +16,6 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.11.1 // indirect
 	golang.org/x/oauth2 v0.34.0 // indirect
+	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
